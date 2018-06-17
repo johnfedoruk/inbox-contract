@@ -15,7 +15,7 @@ describe('Inbox', () => {
         fetchedAccounts = await web3.eth.getAccounts();
         // use an account to deploy the contract
         inbox = await new web3.eth.Contract(JSON.parse(interface))
-            .deploy({ data: bytecode, arguments: [MESSAGE] })
+            .deploy({ data: `0x${bytecode}`, arguments: [MESSAGE] })
             .send({ from: fetchedAccounts[0], gas: MAX_GAS });
     });
     it('should fetch accounts', () => {
